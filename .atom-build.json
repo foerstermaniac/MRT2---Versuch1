@@ -1,0 +1,10 @@
+{
+		"cmd": "make",
+		"name": "Build",
+		"sh": true,
+			"targets": {
+				"Run": {
+					"cmd": "make && {FILE_ACTIVE_PATH}/program"
+				}
+			}
+}
