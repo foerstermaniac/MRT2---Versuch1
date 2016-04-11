@@ -28,16 +28,19 @@ Complex operator/(const Complex& lhs, const Complex& rhs){
 	return cret /= rhs;
 }
 
+// Berechnung der Transferfunktion
+Complex j(0,1);
+double C(1e-6), R(1000);
+Complex transfer_function(double w){
+	return R / (R + 1 / ( j * w * C));
+}
+
 int main ()
 {
-	Complex c0(1,3), c1(2,1);
-	Complex c2 = c0 * c1;
-	double x(2);
-	cout << c0 << " + " << c1 << " = " << c0+c1 << endl;
-	cout << c0 << " - " << c1 << " = " << c0-c1 << endl;
-	cout << c0 << " * " << c1 << " = " << c2 << endl;
-	cout << c0 << " / " << c1 << " = " << c0/c1 << endl;
-	cout << c0 << " * " << x << " = " << c0*x << endl;
-	cout << c0 << " / " << x << " = " << c0/x << endl;
+	// Berechnung Transferfunktion
+	for (double w=1; w<1000; w+= 3){
+		Complex r = transfer_function(w);
+		cout << w << " " << r.Re() << " " << r.Im() << endl;
+	}
  	return 0;
 }
