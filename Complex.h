@@ -8,4 +8,17 @@ public:
 	// Zugriff auf die Attribute
 	double Re() const;
 	double Im() const;
+
+	Complex& operator+=(const Complex& rhs);
+	Complex& operator+=(const double& rhs);
+
+	Complex& operator-=(const Complex& rhs);
+	Complex& operator-=(const double& rhs);
+
+	Complex& operator*=(const Complex& rhs);
+	Complex& operator*=(const double& rhs);
+
+	Complex& operator/=(const Complex& rhs);
+	Complex& operator/=(const double& rhs);
+
 };
